@@ -86,21 +86,22 @@ if st.button('点击进行预测'):
     st.write(output3)
 
     # 访问预测结果的标签
-    try:
-     fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测值
-     fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测值
-     GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
+   try:
+    # 获取 FEV1/FVC、FEV1%pred 和 GOLDCOPD 的预测值
+    fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测值
+    fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测值
+    GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
 
-     st.subheader('预测结果(%)')
-     st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
-     st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
-     st.write(f"您目前的 GOLDCOPD 预测值是: {GOLDCOPD_score}")
+    st.subheader('预测结果(%)')
+    st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
+    st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
+    st.write(f"您目前的 GOLDCOPD 预测值是: {GOLDCOPD_score}")
 
-    # 仅当 GOLDCOPD_score == 1 时，输出慢阻肺警告信息并忽略其他结果
+    # 根据 GOLDCOPD_score 的值输出不同的信息
     if GOLDCOPD_score == 1:
         st.warning("您目前很可能患有慢阻肺，请进一步行肺功能检查。")
     else:
-        # GOLDCOPD_score 为 0 时，显示进一步结果
+        # GOLDCOPD_score 为 0 时，显示进一步的分析结果
         if fev1_fvc_score < 72 and fev1_pred_score < 78:
             st.error("您可能患有中度及以上慢阻肺，请立即联系呼吸专科医生。")
         elif 72 <= fev1_fvc_score < 80:
