@@ -77,16 +77,14 @@ st.write(input_df)
 # 做预测
 if st.button('点击进行预测'):
     output1, output2, output3 = predict(input_df)
-    
-    # 假设 output1 和 output2 中包含 prediction_score 列
-    fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测分数
-    fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测分数
-    GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测分数
-    
-    st.subheader('预测结果(%)')
-    st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
-    st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
-    st.write(f"您目前的 患慢阻肺可能性 预测值是: {GOLDCOPD_score}")
+    # 显示预测结果的结构
+    st.subheader('FEV1/FVC 预测结果')
+    st.write(output1)
+    st.subheader('FEV1%pred 预测结果')
+    st.write(output2)
+    st.subheader('是否为慢阻肺预测结果')
+    st.write(output3)
+ 
 
     # 访问预测结果的标签
     try:
