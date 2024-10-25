@@ -4,8 +4,8 @@ from pycaret.classification import load_model, predict_model
 
 
 # 加载模型
-model = load_model('fev1_fvc_prediction_model')
-model_fev1pred = load_model('model_fev1pred') 
+model1 = load_model('fev1_fvc_prediction_model')
+model2 = load_model('fev1pred prediction_model') 
 
 # 定义一个函数用于预测
 def predict(input_data):
