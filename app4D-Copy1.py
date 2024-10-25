@@ -92,7 +92,5 @@ if st.button('点击进行预测'):
     st.subheader('预测结果(%)')
     st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
     st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
-    
-  if GOLDCOPD_score == 1:
-       st.write("您很可能患有慢阻肺，请进一步行肺功能检查确诊。You probably have COPD. Please have further pulmonary function tests to confirm the diagnosis")
+
        
