@@ -97,27 +97,27 @@ if st.button('点击进行预测'):
         st.write(f"您目前的 GOLDCOPD 预测值是: {GOLDCOPD_score}")
 
        # 仅当 GOLDCOPD_score == 1 时，输出慢阻肺警告信息并忽略其他结果
-if GOLDCOPD_score == 1:
-    st.warning("您目前很可能患有慢阻肺，请进一步行肺功能检查。")
+       if GOLDCOPD_score == 1:
+          st.warning("您目前很可能患有慢阻肺，请进一步行肺功能检查。")
 
-else:
+       else:
         # GOLDCOPD_score 为 0 时，显示进一步结果
-      if fev1_fvc_score < 72 and fev1_pred_score < 78:
+         if fev1_fvc_score < 72 and fev1_pred_score < 78:
             st.error("您可能患有中度及以上慢阻肺，请立即联系呼吸专科医生。")
-      elif 72 <= fev1_fvc_score < 80:
+         elif 72 <= fev1_fvc_score < 80:
             st.warning("您目前还不是慢阻肺，但有患上慢阻肺的风险，请戒烟，增加体重，加强锻炼，参加肺功能筛查测试或纳入年度体检计划。")
-      elif fev1_fvc_score >= 72 and fev1_pred_score <= 78:
+         elif fev1_fvc_score >= 72 and fev1_pred_score <= 78:
             st.warning("您可能存在保留比值肺功能受损，请关注您的呼吸健康情况，建议进一步行肺功能筛查测试。")
-      elif fev1_fvc_score <= 69:
+         elif fev1_fvc_score <= 69:
             st.warning("您可能存在阻塞性通气功能障碍，请关注您的呼吸健康情况，建议进一步行肺功能筛查测试。")
-      else:
+         else:
             st.success("您目前不太可能患有慢阻肺。")
             st.error("无法识别的 GOLDCOPD 评分。")
             
-except KeyError as e:
+    except KeyError as e:
         st.error(f"发生错误: 找不到预测结果列 {e}")
-except IndexError:
+    except IndexError:
         st.error("发生错误: 预测结果没有返回值。请检查模型输出。")
-except Exception as e:
+    except Exception as e:
         st.error(f"发生错误: {e}")
        
