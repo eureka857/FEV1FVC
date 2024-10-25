@@ -17,7 +17,7 @@ def predict(input_data):
 
 
 # 标题和描述
-st.title(''COPD prediction model / 赛博算命——测测你的肺功能怎么样'')
+st.title('COPD prediction model / 赛博算命——测测你的肺功能怎么样')
 st.write("""
 ## 请填写 Input
 请在左侧栏输入参数值，然后点击“预测”按钮 Enter the parameter values in the left column and click the "Predict" button。
