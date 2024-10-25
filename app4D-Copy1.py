@@ -84,6 +84,7 @@ if st.button('点击进行预测'):
     st.write(output3)
     
 # 假设 output1 和 output2 中包含 prediction_score 列
+try:
     fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测分数
     fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测分数
     GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测分数
