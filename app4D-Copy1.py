@@ -87,14 +87,14 @@ if st.button('点击进行预测'):
 
     # 访问预测结果的标签
     try:
-    fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测值
-    fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测值
-    GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
+     fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测值
+     fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测值
+     GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
 
-    st.subheader('预测结果(%)')
-    st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
-    st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
-    st.write(f"您目前的 GOLDCOPD 预测值是: {GOLDCOPD_score}")
+     st.subheader('预测结果(%)')
+     st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
+     st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
+     st.write(f"您目前的 GOLDCOPD 预测值是: {GOLDCOPD_score}")
 
     # 仅当 GOLDCOPD_score == 1 时，输出慢阻肺警告信息并忽略其他结果
     if GOLDCOPD_score == 1:
