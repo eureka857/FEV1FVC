@@ -113,7 +113,7 @@ if st.button('点击进行预测'):
         if  72 <= fev1_fvc_score  and fev1_pred_score <= 78:
             st.error("您可能存在保留比值肺功能受损，请关注您的呼吸健康情况，建议进一步行肺功能筛查测试。")
        
-        if GOLDCOPD_score == 0 and fev1_fvc_score <= 68:
+        if GOLDCOPD_score == 0 and fev1_fvc_score <= 69:
             st.warning("您可能患有慢阻肺，请关注您的呼吸健康情况，建议进一步行肺功能筛查测试。")
             
     except KeyError as e:
