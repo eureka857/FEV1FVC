@@ -26,26 +26,26 @@ st.header('模型内部参数')
 
 def user_input_features():
     # 定义显示标签和对应的原始参数值的映射
-    options1 = {'男': 0, '女': 1}
-    options2 = {'40-49岁': 1, '50-59岁': 2, '60-69岁': 3, '>70岁': 4}
+    options1 = {'男male': 0, '女female': 1}
+    options2 = {'40-49岁/years': 1, '50-59岁year': 2, '60-69岁year': 3, '>70岁years': 4}
     options3 = {'<18.5kg/m2': 7, '18.6-23.9 kg/m2': 4, '24.0-27.9kg/m2':1, '>28.0kg/m2': 0}
-    options4 = {'否': 0, '是': 1}
-    options5 = {'否': 0, '是': 1}
-    options6 = {'仅剧烈活动后气促': 1, '平地快走或爬坡时气促': 2, '活动时需要频繁休息，爬2层楼也感气促': 3}
-    options7 = {'否': 0, '是': 1}
-    options8 = {'从不吸烟': 1, '1-14.9包·年': 2, '15-29.9包·年': 3, '≥30包·年': 4}
-    options9 = {'否': 0, '是': 1}
+    options4 = {'否False': 0, '是Ture': 1}
+    options5 = {'否False': 0, '是Ture': 1}
+    options6 = {'仅剧烈活动后气促Shortness of breath after strenuous activity only': 1, '平地快走或爬坡时气促Shortness of breath when walking fast or climbing on flat ground': 2, '活动时需要频繁休息，爬2层楼也感气促Activities need frequent rest, climbing 2 floors also feel shortness of breath': 3'}
+    options7 = {'否False': 0, '是/Ture': 1}
+    options8 = {'从不吸烟Never smoking': 1, '1-14.9包·年pack·year': 2, '15-29.9包·年pack·year': 3, '≥30包·年pack·year': 4}
+    options9 = {'否False': 0, '是Ture': 1}
     
     # 选择框，显示用户友好的标签
-    selected_option1 = st.sidebar.selectbox('性别', list(options1.keys()))
-    selected_option2 = st.sidebar.selectbox('年龄', list(options2.keys()))
-    selected_option3 = st.sidebar.selectbox('体重指数 身高/体重^2', list(options3.keys()))
-    selected_option4 = st.sidebar.selectbox('慢性咳嗽或咳痰', list(options4.keys()))
-    selected_option5 = st.sidebar.selectbox('反复发生喘息', list(options5.keys()))
-    selected_option6 = st.sidebar.selectbox('活动后气促', list(options6.keys()))
-    selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿', list(options7.keys()))
-    selected_option8 = st.sidebar.selectbox('吸烟指数 每天吸烟几包x吸烟几年', list(options8.keys()))
-    selected_option9 = st.sidebar.selectbox('过去一年中是否使用呼吸药物治疗', list(options9.keys()))
+    selected_option1 = st.sidebar.selectbox('性别Sex', list(options1.keys()))
+    selected_option2 = st.sidebar.selectbox('年龄Age', list(options2.keys()))
+    selected_option3 = st.sidebar.selectbox('体重指数BMI=体重kg/身高*身高m', list(options3.keys()))
+    selected_option4 = st.sidebar.selectbox('长期咳嗽或咳痰Cough or phlegm', list(options4.keys()))
+    selected_option5 = st.sidebar.selectbox('反复发生的喘息Wheeze', list(options5.keys()))
+    selected_option6 = st.sidebar.selectbox('活动后气促mMRC Dyspnea index', list(options6.keys()))
+    selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿Emphysema history', list(options7.keys()))
+    selected_option8 = st.sidebar.selectbox('吸烟指数Smoking index 每天吸烟几包x吸烟几年', list(options8.keys()))
+    selected_option9 = st.sidebar.selectbox('过去一年中是否使用呼吸药物治疗/Drug use history of respiratory diseases', list(options9.keys()))
     
     # 获取原始参数值
     param1 = options1[selected_option1]
@@ -78,3 +78,11 @@ if st.button('点击进行预测'):
     st.write(output1)
     st.subheader('FEV1%pred 预测结果')
     st.write(output2)
+    
+# 假设 output1 和 output2 中包含 prediction_score 列
+    fev1_fvc_score = output1['Score'].values[0]  # 获取 FEV1/FVC 的预测分数
+    fev1_pred_score = output2['Score'].values[0]  # 获取 FEV1%pred 的预测分数
+    
+    st.subheader('预测结果')
+    st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
+    st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
