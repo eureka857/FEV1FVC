@@ -84,12 +84,10 @@ if st.button('点击进行预测'):
     st.write(output3)
     
 # 假设 output1 和 output2 中包含 prediction_score 列
-try:
     fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测分数
     fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测分数
     GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测分数
     
-   
     st.subheader('预测结果(%)')
     st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
     st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
@@ -101,12 +99,5 @@ elif GOLDCOPD_score == 0:
             st.success("您目前不太可能患有慢阻肺。")
 else:
             st.error("无法识别的 GOLDCOPD 评分。")
-
-except KeyError as e:
-        st.error(f"发生错误: 找不到预测结果列 {e}")
-except IndexError:
-        st.error("发生错误: 预测结果没有返回值。请检查模型输出。")
-except Exception as e:
-        st.error(f"发生错误: {e}")
 
        
