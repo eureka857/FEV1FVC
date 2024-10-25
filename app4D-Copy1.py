@@ -98,5 +98,13 @@ if GOLDCOPD_score == 1:
             st.warning("您目前很可能患有慢阻肺，请进一步行肺功能检查。")
 elif GOLDCOPD_score == 0:
             st.success("您目前不太可能患有慢阻肺。")
+else:
+            st.error("无法识别的 GOLDCOPD 评分。")
+except KeyError as e:
+        st.error(f"发生错误: 找不到预测结果列 {e}")
+except IndexError:
+        st.error("发生错误: 预测结果没有返回值。请检查模型输出。")
+except Exception as e:
+        st.error(f"发生错误: {e}")
 
        
