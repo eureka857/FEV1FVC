@@ -6,23 +6,25 @@ from pycaret.classification import load_model, predict_model
 # 加载模型
 model1 = load_model('fev1_fvc_prediction_model')
 model2 = load_model('fev1pred prediction_model') 
+model3 = load_model('GOLDCOPD_prediction_model') 
 
 # 定义一个函数用于预测
 def predict(input_data):
     predictions1 = predict_model(model1, data=input_data)
     predictions2 = predict_model(model2, data=input_data)
-    return predictions1, predictions2
+    predictions3 = predict_model(model3, data=input_data)
+    return predictions1, predictions2, predictions3
 
 
 # 标题和描述
-st.title('COPD prediction model')
+st.title(''COPD prediction model / 赛博算命——测测你的肺功能怎么样'')
 st.write("""
-## 输入参数以进行预测
-请在左侧栏输入参数值，然后点击“预测”按钮。
+## 请填写 Input
+请在左侧栏输入参数值，然后点击“预测”按钮 Enter the parameter values in the left column and click the "Predict" button。
 """)
 
 # 创建输入数据表单
-st.header('模型内部参数')
+st.header('---')
 
 def user_input_features():
     # 定义显示标签和对应的原始参数值的映射
@@ -73,16 +75,24 @@ st.write(input_df)
 
 # 做预测
 if st.button('点击进行预测'):
-    output1, output2 = predict(input_df)
+    output1, output2, output3 = predict(input_df)
     st.subheader('FEV1/FVC 预测结果')
     st.write(output1)
     st.subheader('FEV1%pred 预测结果')
     st.write(output2)
+    st.subheader('是否为慢阻肺预测结果')
+    st.write(output3)
     
 # 假设 output1 和 output2 中包含 prediction_score 列
     fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测分数
     fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测分数
+    GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测分数
     
+   
     st.subheader('预测结果(%)')
     st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
     st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
+    
+  if GOLDCOPD_score == 1:
+       st.write("您很可能患有慢阻肺，请进一步行肺功能检查确诊。You probably have COPD. Please have further pulmonary function tests to confirm the diagnosis")
+       
