@@ -109,8 +109,9 @@ if st.button('点击进行预测'):
             st.warning("您可能存在保留比值肺功能受损，请关注您的呼吸健康情况，建议进一步行肺功能筛查测试。")
       elif fev1_fvc_score <= 69:
             st.warning("您可能存在阻塞性通气功能障碍，请关注您的呼吸健康情况，建议进一步行肺功能筛查测试。")
-    else:
+      else:
             st.success("您目前不太可能患有慢阻肺。")
+            st.error("无法识别的 GOLDCOPD 评分。")
             
     except KeyError as e:
         st.error(f"发生错误: 找不到预测结果列 {e}")
