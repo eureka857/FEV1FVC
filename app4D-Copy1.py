@@ -5,6 +5,7 @@ from pycaret.classification import load_model, predict_model
 
 # 加载模型
 model = load_model('fev1_fvc_prediction_model')
+model_fev1pred = load_model('model_fev1pred') 
 
 # 定义一个函数用于预测
 def predict(input_data):
