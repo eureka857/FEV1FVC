@@ -9,9 +9,9 @@ model2 = load_model('fev1pred prediction_model')
 
 # 定义一个函数用于预测
 def predict(input_data):
-    predictions = predict_model(model, data=input_data)
-    return predictions
-
+    predictions1 = predict_model(model1, data=input_data)
+    predictions2 = predict_model(model2, data=input_data)
+    return predictions1, predictions2
 
 
 # 标题和描述
@@ -73,6 +73,8 @@ st.write(input_df)
 
 # 做预测
 if st.button('点击进行预测'):
-    output = predict(input_df)
-    st.subheader('预测结果')
-    st.write(output)
+    output1, output2 = predict(input_df)
+    st.subheader('FEV1/FVC 预测结果')
+    st.write(output1)
+    st.subheader('FEV1%pred 预测结果')
+    st.write(output2)
