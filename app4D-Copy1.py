@@ -98,7 +98,8 @@ if st.button('点击进行预测'):
 
        # 仅当 GOLDCOPD_score == 1 时，输出慢阻肺警告信息并忽略其他结果
 if GOLDCOPD_score == 1:
-        st.warning("您目前很可能患有慢阻肺，请进一步行肺功能检查。")
+    st.warning("您目前很可能患有慢阻肺，请进一步行肺功能检查。")
+
 else:
         # GOLDCOPD_score 为 0 时，显示进一步结果
       if fev1_fvc_score < 72 and fev1_pred_score < 78:
