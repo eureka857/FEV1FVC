@@ -106,6 +106,8 @@ if st.button('点击进行预测'):
             
         if fev1_fvc_score < 72 and fev1_pred_score < 78:
             st.error("您可能患有中度及以上慢阻肺，请立即联系呼吸专科医生。")
+        if  72 <= fev1_fvc_score < 80  or fev1_pred_score < 78:
+            st.error("您目前还不是慢阻肺，但有患上慢阻肺的风险，请您戒烟，增加体重，加强锻炼，参加肺功能筛查测试或纳入您的年度体检计划。")
 
     except KeyError as e:
         st.error(f"发生错误: 找不到预测结果列 {e}")
