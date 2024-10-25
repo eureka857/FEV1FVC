@@ -91,6 +91,7 @@ if st.button('点击进行预测'):
     st.subheader('预测结果(%)')
     st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
     st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
+    st.write(f"您目前的 患慢阻肺可能性 预测值是: {GOLDCOPD_score}")
     
  # 根据 GOLDCOPD_score 的值输出不同的信息
 if   GOLDCOPD_score == 1:
