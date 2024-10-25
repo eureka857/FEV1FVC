@@ -99,7 +99,7 @@ if st.button('点击进行预测'):
         # 根据 GOLDCOPD_score 的值输出不同的信息
         if GOLDCOPD_score == 1:
             st.warning("您目前很可能患有慢阻肺，请进一步行肺功能检查。")
-        elif GOLDCOPD_score == 0:
+        elif GOLDCOPD_score == 0 and fev1_fvc_score > 75:
             st.success("您目前不太可能患有慢阻肺。")
         else:
             st.error("无法识别的 GOLDCOPD 评分。")
