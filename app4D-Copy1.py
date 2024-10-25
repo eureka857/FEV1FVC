@@ -75,7 +75,7 @@ st.write(input_df)
 
 # 做预测
 if st.button('点击进行预测'):
-      output1, output2, output3 = predict(input_df)
+    output1, output2, output3 = predict(input_df)
     
     # 显示预测结果的结构
     st.subheader('FEV1/FVC 预测结果')
