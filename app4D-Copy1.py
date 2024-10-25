@@ -100,6 +100,7 @@ elif GOLDCOPD_score == 0:
             st.success("您目前不太可能患有慢阻肺。")
 else:
             st.error("无法识别的 GOLDCOPD 评分。")
+
 except KeyError as e:
         st.error(f"发生错误: 找不到预测结果列 {e}")
 except IndexError:
