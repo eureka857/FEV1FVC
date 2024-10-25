@@ -80,8 +80,8 @@ if st.button('点击进行预测'):
     st.write(output2)
     
 # 假设 output1 和 output2 中包含 prediction_score 列
-    fev1_fvc_score = output1['Score'].values[0]  # 获取 FEV1/FVC 的预测分数
-    fev1_pred_score = output2['Score'].values[0]  # 获取 FEV1%pred 的预测分数
+    fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测分数
+    fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测分数
     
     st.subheader('预测结果')
     st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
