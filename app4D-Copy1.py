@@ -87,11 +87,6 @@ if st.button('点击进行预测'):
 
     # 访问预测结果的标签
     try:
-        # 打印输出结果以进行调试
-        st.write("输出1内容：", output1)
-        st.write("输出2内容：", output2)
-        st.write("输出3内容：", output3)
-
         fev1_fvc_score = output1['prediction_label'].values[0]  # 获取 FEV1/FVC 的预测值
         fev1_pred_score = output2['prediction_label'].values[0]  # 获取 FEV1%pred 的预测值
         GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
