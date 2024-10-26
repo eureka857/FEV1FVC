@@ -93,9 +93,9 @@ if st.button('点击进行预测 Click here'):
         GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
 
         st.subheader('预测结果Result(%)')
-        st.write(f"您目前的 FEV1/FVC 预测值是 Your predicted value of FEV1/FVC: <span style='font-size: 20px;'><strong>**{fev1_fvc_score}**</strong></span>"，unsafe_allow_html=True)
-        st.write(f"您目前的 FEV1%pred 预测值是 Your predicted value of FEV1/FVC:<span style='font-size: 20px;'><strong> **{fev1_pred_score}**</strong></span>"， unsafe_allow_html=True)
-        st.write(f"您目前的 GOLDCOPD 预测值是 Your predicted label of GOLDCOPD: <span style='font-size: 20px;'><strong>**{GOLDCOPD_score}**</strong></span>"， unsafe_allow_html=True)
+        st.write(f"您目前的 FEV1/FVC 预测值是 Your predicted value of FEV1/FVC: <span style='font-size: 20px;'><strong>**{fev1_fvc_score}**</strong></span>",unsafe_allow_html=True)
+        st.write(f"您目前的 FEV1%pred 预测值是 Your predicted value of FEV1/FVC:<span style='font-size: 20px;'><strong> **{fev1_pred_score}**</strong></span>",unsafe_allow_html=True)
+        st.write(f"您目前的 GOLDCOPD 预测值是 Your predicted label of GOLDCOPD: <span style='font-size: 20px;'><strong>**{GOLDCOPD_score}**</strong></span>",unsafe_allow_html=True)
 
         # 根据 GOLDCOPD_score 的值输出不同的信息
         if GOLDCOPD_score == 1:
