@@ -93,9 +93,9 @@ if st.button('点击进行预测 Click here'):
         GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
 
         st.subheader('预测结果Result(%)')
-        st.write(f"您目前的 FEV1/FVC 预测值是: {fev1_fvc_score}")
-        st.write(f"您目前的 FEV1%pred 预测值是: {fev1_pred_score}")
-        st.write(f"您目前的 GOLDCOPD 预测值是: {GOLDCOPD_score}")
+        st.write(f"您目前的 FEV1/FVC 预测值是 Your predicted value of FEV1/FVC: {fev1_fvc_score}")
+        st.write(f"您目前的 FEV1%pred 预测值是 Your predicted value of FEV1/FVC: {fev1_pred_score}")
+        st.write(f"您目前的 GOLDCOPD 预测值是 Your predicted label of GOLDCOPD: {GOLDCOPD_score}")
 
         # 根据 GOLDCOPD_score 的值输出不同的信息
         if GOLDCOPD_score == 1:
@@ -112,7 +112,7 @@ if st.button('点击进行预测 Click here'):
             elif fev1_fvc_score <= 69:
                 st.warning("您可能存在阻塞性通气功能障碍，请关注您的呼吸健康情况，建议进一步行肺功能筛查测试。You may got lung function impaired，you need spirometry test")
             else:
-                st.success("您目前不太可能患有慢阻肺。Congratulation，you have relative low risk of COPD")
+                st.success("您目前不太可能患有慢阻肺。Congratulation,you have relative low risk of COPD")
 
     except KeyError as e:
         st.error(f"发生错误: 找不到预测结果列 {e}")
