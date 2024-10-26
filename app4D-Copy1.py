@@ -17,14 +17,14 @@ def predict(input_data):
 
 
 # 标题和描述
-st.title('COPD prediction model / 赛博算命——测测你的肺功能怎么样')
+st.title('赛博算命——测测你的肺功能怎么样 COPD prediction model')
 st.write("""
 ## 请填写 Input
 请在左侧栏输入参数值，然后点击“预测”按钮 Enter the parameter values in the left column and click the "Predict" button。
 """)
 
 # 创建输入数据表单
-st.header('---')
+st.header('···')
 
 def user_input_features():
     # 定义显示标签和对应的原始参数值的映射
@@ -70,7 +70,7 @@ input_df = user_input_features()
 
 
 # 显示输入参数
-st.subheader('---')
+st.subheader('···')
 st.write(input_df)
 
 # 做预测
@@ -93,9 +93,9 @@ if st.button('点击进行预测 Click here'):
         GOLDCOPD_score = output3['prediction_label'].values[0]  # 获取 GOLDCOPD 的预测值
 
         st.subheader('预测结果Result(%)')
-        st.write(f"您目前的 FEV1/FVC 预测值是 Your predicted value of FEV1/FVC: {fev1_fvc_score}")
-        st.write(f"您目前的 FEV1%pred 预测值是 Your predicted value of FEV1/FVC: {fev1_pred_score}")
-        st.write(f"您目前的 GOLDCOPD 预测值是 Your predicted label of GOLDCOPD: {GOLDCOPD_score}")
+        st.write(f"您目前的 FEV1/FVC 预测值是 Your predicted value of FEV1/FVC: {**fev1_fvc_score**}")
+        st.write(f"您目前的 FEV1%pred 预测值是 Your predicted value of FEV1/FVC: {**fev1_pred_score**}")
+        st.write(f"您目前的 GOLDCOPD 预测值是 Your predicted label of GOLDCOPD: {**GOLDCOPD_score**}")
 
         # 根据 GOLDCOPD_score 的值输出不同的信息
         if GOLDCOPD_score == 1:
