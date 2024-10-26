@@ -20,7 +20,7 @@ def predict(input_data):
 st.title('赛博算命——测测你的肺功能怎么样 COPD prediction model')
 st.write("""
 ## 请填写 Input
-请在左侧栏输入参数值，然后点击“预测”按钮 Enter the parameter values in the left column and click the "Predict" button。
+请在左侧栏输入参数值，然后点击“预测”按钮 Enter the parameter values in the left column and click the "Prediction" button。
 """)
 
 # 创建输入数据表单
@@ -74,7 +74,7 @@ st.subheader('···')
 st.write(input_df)
 
 # 做预测
-if st.button('点击进行预测 Click here'):
+if st.button('点击进行预测 Click here to prediction'):
     output1, output2, output3 = predict(input_df)
     # 显示预测结果的结果
     st.subheader('FEV1/FVC')
