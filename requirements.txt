@@ -3,3 +3,4 @@ pandas
 pycaret
 matplotlib
 xgboost
+six==1.17.0
